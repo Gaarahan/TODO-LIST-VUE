@@ -1,0 +1,16 @@
+{
+  "name": "vue_todos_server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "server": "node index.js",
+    "dev" : "nodemon index.js"
+  },
+  "author": "gaarahan",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.3"
+  }
+}
