@@ -18,3 +18,5 @@
 
 1. **open one console to exec "npm run dev" in "Vue-Todos/client",then you can
 see the app's main-page,enjoy yourself!**
+
+**notice** : use proxy to resolve cross-origin problem, so the build file can not be use

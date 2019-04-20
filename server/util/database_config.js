@@ -1,7 +1,7 @@
 let config = {
   host : 'localhost',
   user : 'root',
-  password : '42272000',
+  password : '42272han',
   database : 'vue_todo',
   charset : 'utf8'
 };

@@ -94,7 +94,6 @@
       getComplete(){
         this.curPattern = 1;
         this.getThings();
-
       },
       getActive(){
         this.curPattern = 2;
@@ -115,24 +114,17 @@
       },
       check(e) {
         let cur = e.currentTarget;
-        this.$http.get('/api/fetch?id=' + cur.parentElement.id).then((res)=>{
+        this.$http.get('/api/fetch?id=' + cur.parentElement.parentElement.id).then((res)=>{
               let curThing = {};
-              curThing.title = res.body[0].thing_title;
-              curThing.id = res.body[0].thing_id;
-              curThing.status = res.body[0].thing_status;
+              curThing.title = res.body[0]['thing_title'];
+              curThing.id = res.body[0]['thing_id'];
+              curThing.status = res.body[0]['thing_status'];
               //勾选
               if(cur.checked !== false){
                 curThing.status = 1;
-                // changeCount();
-                // 针对不同的状态做出不同的响应
-                // if(pattern ===  2)
-                //   cur.parentElement.parentElement.parentElement.style.display = "none";
               }
               else{
                 curThing.status = 0;
-                // changeCount();
-                // if(pattern ===  3)
-                //   cur.parentElement.parentElement.parentElement.style.display = "none";
               }
               this.$http.post('/api/edit',curThing).then(()=>{
                 this.getThings();

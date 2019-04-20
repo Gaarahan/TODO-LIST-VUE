@@ -19,8 +19,7 @@ module.exports.add = function (addData, callback) {
 
   connection.connect();
 
-  const sql = `insert into vue_todo.things values(
-      0,'${addData.title}',0);`;
+  const sql = `insert into vue_todo.things(thing_title,thing_status) values( '${addData.title}',0);`;
   connection.query(sql, function (err, result) {
     if (err)
       throw err;
@@ -33,8 +32,7 @@ module.exports.delById = function (id, callback) {
 
   connection.connect();
 
-  const sql = `delete from vue_todo.things 
-      where thing_id =  ${id} ;`;
+  const sql = `delete from vue_todo.things where thing_id =  ${id} ;`;
   connection.query(sql, function (err, result) {
     if (err)
       throw err;
@@ -63,7 +61,7 @@ module.exports.fetchById = function (id,callback) {
 
   connection.connect();
 
-  const sql = `select * from vue_todo.things where thing_id=${id} order by things.thing_id desc;`
+  const sql = `select * from vue_todo.things where thing_id=${id} order by things.thing_id desc;`;
 
   connection.query(sql,function (err,result) {
     if(err)
